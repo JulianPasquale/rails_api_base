@@ -7,6 +7,7 @@ module Api
       skip_after_action :verify_authorized, :verify_policy_scoped
 
       def must_update
+        raise 'Example exception'
         current_version = Gem::Version.new(params[:device_version])
         min_version = Gem::Version.new(version || '0.0.0')
         must_update = min_version > current_version
